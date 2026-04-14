@@ -1,0 +1,21 @@
+{
+  "tests": [
+    {
+      "name": "GET state",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"motion_sensor": false, "led_enabled": true, "led_on": false},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST activate",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "activate"},
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
