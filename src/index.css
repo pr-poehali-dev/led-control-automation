@@ -4,8 +4,19 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 20% 7%;
+    --foreground: 210 20% 92%;
+
+    --surface: 220 18% 10%;
+    --surface-2: 220 16% 13%;
+    --surface-3: 220 14% 17%;
+
+    --accent-blue: 210 100% 56%;
+    --accent-green: 142 70% 45%;
+    --accent-amber: 38 95% 55%;
+    --accent-red: 0 85% 60%;
+
+    --foreground: 210 20% 92%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -97,5 +108,66 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "IBM Plex Sans", sans-serif;
+    background-color: hsl(var(--background));
   }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 153, 252, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 153, 252, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 153, 252, 0);
+  }
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes log-entry {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+.animate-pulse-green {
+  animation: pulse-green 1.5s infinite;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.35s ease-out forwards;
+}
+.animate-log-entry {
+  animation: log-entry 0.25s ease-out forwards;
 }
